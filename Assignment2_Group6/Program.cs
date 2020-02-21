@@ -55,26 +55,32 @@ namespace Assignment2_Group6
             Console.WriteLine("Part 2- Intersection of two arrays is: ");
             DisplayArray(intersect2);
             Console.WriteLine("\n");
+            
 
             //QUESTION 6 
             Console.WriteLine("Question 6");
             char[] arr = new char[] { 'a', 'g', 'h', 'a' };
             int k = 3;
             Console.WriteLine(ContainsDuplicate(arr, k));
-
+            
+            
             //QUESTION 7 
+            Console.WriteLine();
             Console.WriteLine("Question 7");
             int rodLength = 4;
-            int priceProduct = GoldRod(rodLength);
-            Console.WriteLine(priceProduct);
+            //int priceProduct = GoldRod(rodLength);
+            //GoldRod(rodLength);
+            //Console.WriteLine(priceProduct);
+            */
 
             //QUESTION 8
             Console.WriteLine("Question 8");
             string[] userDict = new string[] { "rocky", "usf", "hello", "apple" };
             string keyword = "hhllo";
             Console.WriteLine(DictSearch(userDict, keyword));
-            Console.WriteLine("Question 8");
-            SolvePuzzle();*/
+            
+            Console.WriteLine("Question 9");
+            SolvePuzzle();
         }
         public static void DisplayArray(int[] a)
         {
@@ -152,7 +158,6 @@ namespace Assignment2_Group6
             }
             return null;
         }
-
 
         public static int MinimumSum(int[] l2)
         {
@@ -246,38 +251,74 @@ namespace Assignment2_Group6
             }
             return new int[] { };
         }
-
+        */
+        /*
         public static bool ContainsDuplicate(char[] arr, int k)
         {
             try
             {
-                //Write your code here;
+                Dictionary<int, char> dictionaryTest = new Dictionary<int, char>();
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    dictionaryTest.Add(i, arr[i]);
+                    Console.WriteLine("Array Position {0} and Position Value {1}", i, arr[i]);
+
+
+                }
+
+
             }
             catch (Exception)
             {
                 throw;
             }
             return default;
-        }
-
-        public static int GoldRod(int rodLength)
+        }*/
+        
+        /*
+        //public static int GoldRod(int rodLength)
+        public static void GoldRod(int rodLength)
         {
             try
             {
-                //Write Your Code Here
+                Console.WriteLine(rodLength);
             }
             catch (Exception)
             {
                 throw;
             }
-            return 0;
+           //return 0;
         }
-
+        */
         public static bool DictSearch(string[] userDict, string keyword)
         {
             try
             {
-                //Write Your Code Here
+                foreach (string words in userDict)
+                {
+                    int count = 0;
+                    if (words.Length == keyword.Length)
+                    {
+                        char[] key = keyword.ToCharArray();
+                        char[] word = words.ToCharArray();
+
+                        for (int i = 0; i < word.Length; i++)
+                        {
+                            if (word[i]!= key[i])
+                            {
+                                count = count + 1;
+                            }
+                        }
+
+                        if (count == 1)
+                        {
+                            return true;
+                            break;
+                        }
+                        
+                    }
+                }
             }
             catch (Exception)
             {
@@ -285,18 +326,48 @@ namespace Assignment2_Group6
             }
             return default;
         }
-
+        
         public static void SolvePuzzle()
         {
             try
             {
-                //Write Your Code Here
+                Console.WriteLine("Enter the first string(4):");
+                //string first_str = Console.ReadLine();
+                string first_str = "UBER";
+                Console.WriteLine("Enter the second string(4):");
+                //string second_str = Console.ReadLine();
+                string second_str = "COOL";
+                Console.WriteLine("Enter the result string(5):");
+                //string result_str = Console.ReadLine();
+                string result_str = "UNCLE";
+
+                List<char> unique_char = new List<char>();
+
+                String final_str = first_str + second_str + result_str;
+                char[] char_arr = final_str.ToCharArray();
+
+                for (int i = 0; i < char_arr.Length; i++)
+                {
+                    Console.Write(char_arr[i]);
+                    Console.WriteLine();
+                    if (unique_char.Contains(char_arr[i]))
+                    {
+                        Console.WriteLine("Character repeat...");
+                    }
+                    else 
+                    {
+                        unique_char.Add(char_arr[i]);
+                    }
+                }
+
+                foreach (int i in unique_char)
+                    Console.Write(i);
+
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        */
     }
 }
